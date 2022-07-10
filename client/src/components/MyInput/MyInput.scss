@@ -1,0 +1,16 @@
+@import "../../styles/palitre";
+
+.my-input {
+  width: 100%;
+  padding: 20px;
+  height: 48px;
+  border: none;
+  background-color: $shadowColor;
+  border-radius: 48px;
+
+  &:hover {
+    background-color: $backgroundHover;
+
+  }
+
+}

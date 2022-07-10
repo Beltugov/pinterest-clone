@@ -1,0 +1,14 @@
+@import "../../styles/palitre";
+
+.avatar {
+  width: 28px;
+  height: 28px;
+  background-color: $backgroundHover;
+  border-radius: 50%;
+  vertical-align: middle;
+
+  &__letter {
+    display: inline-block;
+    margin: 20% 0 0;
+  }
+}
