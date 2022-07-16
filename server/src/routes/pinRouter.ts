@@ -5,12 +5,10 @@ const router = new Router();
 
 const pinController = new PinController();
 
-// router.use("/comment", commentRouter);
-//
-// router.post("/", pinController.addAll());
-// router.get("/", pinController.addAll());
-// router.get("/:id", pinController.addAll());
-// router.put("/:id", pinController.addAll());
-// router.delete("/:id", pinController.addAll());
+router.post("/", pinController.create);
+router.get("/", pinController.getAll);
+router.get("/:id", pinController.getOne);
+router.put("/:id", pinController.change);
+router.delete("/:id", pinController.remove);
 
 export { router as pinRouter };

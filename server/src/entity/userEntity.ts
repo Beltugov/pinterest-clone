@@ -13,8 +13,8 @@ import { PinEntity } from "./pinEntity";
 
 @Entity("user")
 export class UserEntity extends BaseEntity {
-  @PrimaryGeneratedColumn("uuid")
-  id: string;
+  @PrimaryGeneratedColumn("increment")
+  id: number;
 
   @Column()
   firstName: string;

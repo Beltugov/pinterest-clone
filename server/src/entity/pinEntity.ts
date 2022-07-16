@@ -5,6 +5,7 @@ import {
   JoinColumn,
   ManyToMany,
   ManyToOne,
+  OneToMany,
   PrimaryGeneratedColumn,
 } from "typeorm";
 
@@ -14,8 +15,8 @@ import { UserEntity } from "./userEntity";
 
 @Entity("pin")
 export class PinEntity extends BaseEntity {
-  @PrimaryGeneratedColumn("uuid")
-  id: string;
+  @PrimaryGeneratedColumn("increment")
+  id: number;
 
   @Column()
   img: string;
@@ -26,13 +27,17 @@ export class PinEntity extends BaseEntity {
   @Column()
   description: string | null;
 
-  @ManyToOne(() => UserEntity, (user) => user.pin)
+  @ManyToOne(() => UserEntity, (user) => user.pin, {
+    onDelete: "CASCADE",
+  })
   user: UserEntity;
 
-  @ManyToOne(() => CommentEntity, (comment) => comment.pin)
+  @OneToMany(() => CommentEntity, (comment) => comment.pin)
   @JoinColumn()
   comment: CommentEntity[];
 
-  @ManyToMany(() => BoardEntity, (board) => board.pin)
+  @ManyToMany(() => BoardEntity, (board) => board.pin, {
+    onDelete: "CASCADE",
+  })
   board: BoardEntity[];
 }
