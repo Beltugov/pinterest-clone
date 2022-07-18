@@ -9,10 +9,10 @@ module.exports = {
   extends: [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
-    "plugin:@typescript-eslint/recommended-requiring-type-checking",
     "prettier",
   ],
   rules: {
-    "no-console": 2,
+    "@typescript-eslint/no-var-requires": 0,
+    "@typescript-eslint/no-unsafe-assignment": 0,
   },
 };

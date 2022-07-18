@@ -13,8 +13,8 @@ import { UserEntity } from "./userEntity";
 
 @Entity("board")
 export class BoardEntity extends BaseEntity {
-  @PrimaryGeneratedColumn("uuid")
-  id: string;
+  @PrimaryGeneratedColumn("increment")
+  id: number;
 
   @Column()
   title: string;

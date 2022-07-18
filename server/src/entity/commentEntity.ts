@@ -11,15 +11,19 @@ import { UserEntity } from "./userEntity";
 
 @Entity("comment")
 export class CommentEntity extends BaseEntity {
-  @PrimaryGeneratedColumn("uuid")
-  id: string;
+  @PrimaryGeneratedColumn("increment")
+  id: number;
 
   @Column()
   text: string;
 
-  @ManyToOne(() => UserEntity, (user) => user.comment)
+  @ManyToOne(() => UserEntity, (user) => user.comment, {
+    onDelete: "CASCADE",
+  })
   user: UserEntity;
 
-  @ManyToOne(() => PinEntity, (pin) => pin.comment)
+  @ManyToOne(() => PinEntity, (pin) => pin.comment, {
+    onDelete: "CASCADE",
+  })
   pin: PinEntity;
 }

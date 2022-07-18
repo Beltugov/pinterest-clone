@@ -1,8 +1,11 @@
 import { body } from "express-validator";
 import { UserEntity } from "../entity/userEntity";
 
-export const regValidation = [
+export const updateValidation = [
   body("email")
+    .if((value) => {
+      return value;
+    })
     .isEmail()
     .withMessage("Недопустимый E-Mail")
     .isLength({
@@ -12,7 +15,7 @@ export const regValidation = [
     .isLength({ max: 40 })
     .withMessage("Количество символов E-Mail не может быть больше 40")
     .custom((value: string) => {
-      return UserEntity.findOneBy({ email: value }).then((email) => {
+      return UserEntity.findOneBy({ email: value }).then(({ email }) => {
         if (email) {
           return Promise.reject("E-mail уже используется");
         }
@@ -20,6 +23,9 @@ export const regValidation = [
     }),
 
   body("password")
+    .if((value) => {
+      return value;
+    })
     .isString()
     .isLength({
       min: 6,
