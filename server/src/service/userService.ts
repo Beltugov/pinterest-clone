@@ -2,6 +2,9 @@ import { UserEntity } from "../entity/userEntity";
 import { IUser } from "../types/user";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
+import uuid from "uuid";
+import path from "path";
+import fs from "fs";
 
 const createToken = (user) => {
   return jwt.sign({ user }, process.env.SECRET_KEY, {
@@ -10,22 +13,23 @@ const createToken = (user) => {
 };
 
 export class UserService {
-
   registration = async ({
-                          firstName,
-                          secondName,
-                          password,
-                          email,
-                          avatar,
-                        }: IUser) => {
+    firstName,
+    secondName,
+    password,
+    email,
+    avatar,
+  }: IUser) => {
     try {
+      const fileName = uuid.v4() + ".jpg";
+      avatar.mv(path.resolve(__dirname, "..", "img/avatar", fileName));
       const hashPassword = await bcrypt.hash(password, 3);
       const user = await UserEntity.create({
         firstName,
         secondName,
         password: hashPassword,
         email,
-        avatar,
+        avatar: fileName,
       }).save();
       return createToken(user);
     } catch (e) {
@@ -36,9 +40,9 @@ export class UserService {
     }
   };
 
-  login = async ({id}: { id: number; email: string }) => {
+  login = async ({ id }: { id: number; email: string }) => {
     try {
-      const user = await UserEntity.findOneBy({id: id});
+      const user = await UserEntity.findOneBy({ id: id });
       return createToken(user);
     } catch (e) {
       return {
@@ -48,9 +52,9 @@ export class UserService {
     }
   };
 
-  auth = async ({id}: { id: number; email: string }) => {
+  auth = async ({ id }: { id: number; email: string }) => {
     try {
-      const user = await UserEntity.findOneBy({id: id});
+      const user = await UserEntity.findOneBy({ id: id });
       return createToken(user);
     } catch (e) {
       return {
@@ -63,10 +67,10 @@ export class UserService {
   change = async (update: IUser) => {
     try {
       const hashPassword = update.password
-          ? await bcrypt.hash(update.password, 3)
-          : null;
+        ? await bcrypt.hash(update.password, 3)
+        : null;
 
-      const user = await UserEntity.findOneBy({id: update.id});
+      const user = await UserEntity.findOneBy({ id: update.id });
       await UserEntity.update(update.id, {
         firstName: update.firstName || user.firstName,
         secondName: update.secondName || user.secondName,
@@ -74,7 +78,7 @@ export class UserService {
         password: hashPassword || user.password,
         avatar: update.avatar || user.avatar,
       });
-      const userUpdate = await UserEntity.findOneBy({id: update.id});
+      const userUpdate = await UserEntity.findOneBy({ id: update.id });
       return createToken(userUpdate);
     } catch (e) {
       return {
@@ -84,10 +88,20 @@ export class UserService {
     }
   };
 
-  remove = async ({id}) => {
+  remove = async ({ id }) => {
     try {
-      const user = await UserEntity.findOneBy({id: id});
-      await UserEntity.remove(user);
+      const user = await UserEntity.findOneBy({ id: id });
+      if (user) {
+        await UserEntity.remove(user);
+        await fs.unlink(
+          path.resolve(__dirname, "..", "img", user.avatar),
+          () => {
+            return;
+          }
+        );
+        return { status: 200 };
+      }
+      return { status: 404, message: "Not found" };
     } catch (e) {
       return {
         status: 500,

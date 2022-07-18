@@ -4,5 +4,5 @@ export interface IUser {
   secondName: string;
   password: string;
   email: string;
-  avatar: string | null;
+  avatar: any | null;
 }

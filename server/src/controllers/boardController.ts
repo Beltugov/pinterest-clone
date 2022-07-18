@@ -11,10 +11,10 @@ export class BoardController {
   ): Promise<Response | void> {
     try {
       const { title, userId } = req.body;
-      const board = await boardService.create(title, Number(userId));
+      const result = await boardService.create(title, Number(userId));
       return res.json({
         status: 200,
-        data: [board.id, board.title],
+        data: result,
       });
     } catch (e) {
       return next(res.status(500).json({ errors: e }));
@@ -119,7 +119,8 @@ export class BoardController {
   ): Promise<Response | void> {
     try {
       const { id } = req.params;
-      await boardService.remove(Number(id));
+      const result = await boardService.remove(Number(id));
+      return res.json({ result });
     } catch (e) {
       return next(res.status(500).json({ errors: e }));
     }

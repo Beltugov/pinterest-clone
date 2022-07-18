@@ -11,10 +11,9 @@ export class CommentController {
   ): Promise<Response | void> {
     try {
       const { pinId, userId, text } = req.body;
-      const comment = await commentService.create(pinId, userId, text);
+      const result = await commentService.create(pinId, userId, text);
       return res.json({
-        status: 200,
-        data: comment,
+        result,
       });
     } catch (e) {
       return next(res.status(500).json({ errors: e }));
@@ -52,7 +51,10 @@ export class CommentController {
   ): Promise<Response | void> {
     try {
       const { id } = req.params;
-      await commentService.remove(Number(id));
+      const result = await commentService.remove(Number(id));
+      return res.json({
+        result,
+      });
     } catch (e) {
       return next(res.status(500).json({ errors: e }));
     }

@@ -94,9 +94,9 @@ export class UserController {
       if (!errors.isEmpty()) {
         return res.status(400).json({ errors: errors.array() });
       }
-      await userService.remove(req.body);
+      const result = await userService.remove(req.body);
       return res.json({
-        status: 200,
+        result,
       });
     } catch (e) {
       return next(res.status(500).json({ errors: e }));
