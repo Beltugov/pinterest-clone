@@ -16,10 +16,9 @@ export class UserController {
       if (!errors.isEmpty()) {
         return res.status(400).json({ errors: errors.array() });
       }
-      const token = await userService.registration(req.body);
+      const result = await userService.registration(req.body);
       return res.json({
-        status: 200,
-        token: token,
+        result,
       });
     } catch (e) {
       return next(res.status(500).json({ errors: e }));
@@ -36,10 +35,9 @@ export class UserController {
       if (!errors.isEmpty()) {
         return res.status(400).json({ errors: errors.array() });
       }
-      const token = userService.login(req.body);
+      const result = await userService.login(req.body);
       return res.json({
-        status: 200,
-        token: token,
+        result,
       });
     } catch (e) {
       return next(res.status(500).json({ errors: e }));

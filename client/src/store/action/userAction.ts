@@ -1,19 +1,31 @@
-// export const getWeather =
-//   (lat: number, lon: number) => async (dispatch: Dispatch<WeatherAction>) => {
-//     console.log("start");
-//     dispatch({ type: WeatherActionTypes.SET_LOADING, payload: true });
-//     fetch(
-//       `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&exclude=minutely&appid=539addb3e517333cc534fa82c01a0ce6`
-//     )
-//       .then(({ data }) => {
-//         console.log(data);
-//         dispatch({ type: WeatherActionTypes.SET_CITY, payload: data });
-//         dispatch({ type: WeatherActionTypes.SET_LOADING, payload: false });
-//       })
-//       .catch((request) => {
-//         console.log(request);
-//         dispatch({ type: WeatherActionTypes.SET_ERROR, payload: request });
-//         dispatch({ type: WeatherActionTypes.SET_LOADING, payload: false });
-//       });
-//     console.log("end");
-//   };
+import {fetchUserType} from "../../types/fetch";
+import {IUser, UserAction} from "../../types/user";
+import {Dispatch} from "redux";
+import {BASE_URL} from "../../consts/http";
+
+// export const registrationUser = async () => {};
+
+export const logInUser =
+  (email: string, password: string) =>
+  async (dispatch: Dispatch<UserAction>): Promise<IUser | void> => {
+    console.log("start");
+    dispatch({ type: fetchUserType.FETCH_USER });
+    await fetch(`${BASE_URL}/user/login`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email: email,
+        password: password,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        dispatch({ type: fetchUserType.FETCH_USER_SUCCESS, payload: data });
+      })
+      .catch((reject) => {
+        dispatch({ type: fetchUserType.FETCH_USER_ERROR, payload: reject });
+      });
+  };

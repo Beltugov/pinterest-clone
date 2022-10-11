@@ -1,52 +1,24 @@
-enum fetchUserType {
-  FETCH_USER = "FETCH_USER",
-  FETCH_USER_ERROR = "FETCH_USER_ERROR",
-  FETCH_USER_SUCCESS = "FETCH_USER_SUCCESS",
-}
+import { UserAction, UserState } from "../../types/user";
+import { fetchUserType } from "../../types/fetch";
+import { Reducer } from "redux";
 
-interface IUserState {
-  isAuth: boolean;
-  error: string | null;
-  isLoading: boolean;
-  nickname: string | null;
-  password: string | null;
-  email: string | null;
-  avatar: string | null;
-}
-
-interface IFetchUserAction {
-  type: fetchUserType.FETCH_USER;
-}
-
-interface IFetchUserActionSuccess {
-  type: fetchUserType.FETCH_USER_SUCCESS;
-  payload: string;
-}
-
-interface IFetchUserActionError {
-  type: fetchUserType.FETCH_USER_ERROR;
-  payload: string;
-}
-
-type UserAction =
-  | IFetchUserAction
-  | IFetchUserActionSuccess
-  | IFetchUserActionError;
-
-const initialState: IUserState = {
+const initialState: UserState = {
+  user: {
+    firstName: null,
+    secondName: null,
+    password: null,
+    email: null,
+    avatar: null,
+  },
   isAuth: false,
-  error: null,
   isLoading: false,
-  nickname: null,
-  password: null,
-  email: null,
-  avatar: null,
+  error: null,
 };
 
-export const userReducer = (
-  state: IUserState = initialState,
-  action: UserAction
-): IUserState => {
+export const userReducer: Reducer<UserState, UserAction> = (
+  state = initialState,
+  action
+): UserState => {
   switch (action.type) {
     case fetchUserType.FETCH_USER:
       return { ...state, isLoading: true };
@@ -55,10 +27,7 @@ export const userReducer = (
         ...state,
         isLoading: false,
         isAuth: true,
-        nickname: action.payload,
-        password: action.payload,
-        email: action.payload,
-        avatar: action.payload,
+        user: action.payload,
       };
 
     case fetchUserType.FETCH_USER_ERROR:

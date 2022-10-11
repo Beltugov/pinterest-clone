@@ -1,9 +1,36 @@
+//Main
 $mainColor: rgb(227, 36, 41);
 $mainColorHover: rgb(196, 30, 35);
-$borderColor: rgba(0, 0, 0);
-$hover: rgba(0, 0, 0, 0.3);
-$shadowColor: rgb(238, 238, 238);
-$backgroundHover: rgb(224, 224, 224);
+
+//input
+$borderColor: rgb(217, 217, 217);
 $inputTargetBorder: rgb(0, 157, 225);
+
+//pin
+$hover: rgba(0, 0, 0, 0.3);
+
+//validation
+$error: rgb(227, 36, 41);
+
+//shadow
+$shadowColor: rgb(238, 238, 238);
+
+
 $backgroundColor: rgba(255, 255, 255);
-$textColor: rgb(224, 224, 224);
+
+
+$backgroundHover: rgb(224, 224, 224);
+
+//textColor
+$textColor: rgb(255, 255, 255);
+
+//titleRadioBtnBackground
+$dotsColor: rgb(203, 203, 203);
+
+//titleSection2
+$section2BackgroundColor: #fdfc91;
+$section2Color: #c21952;
+
+//titleSection3
+$section3BackgroundColor: #d9fdf5;
+$section3Color: #006b6c;

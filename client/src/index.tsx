@@ -4,8 +4,6 @@ import ReactDOM from "react-dom/client";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import "./index.scss";
-
-import Header from "./components/Header/Header";
 import AppRouter from "./router/AppRouter";
 import store from "./store/store";
 
@@ -17,10 +15,7 @@ root.render(
   <React.StrictMode>
     <Provider store={store}>
       <BrowserRouter>
-        <Header />
-        <div className="wrapper">
-          <AppRouter />
-        </div>
+        <AppRouter />
       </BrowserRouter>
     </Provider>
   </React.StrictMode>

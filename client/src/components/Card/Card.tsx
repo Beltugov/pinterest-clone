@@ -2,11 +2,10 @@ import React from "react";
 
 import "./Card.scss";
 import { Link } from "react-router-dom";
-
-import dots from "../../assets/more.png";
-import share from "../../assets/upload.png";
 import { PIN_ROUTE } from "../../router/constants";
 import MyButton from "../MyButton/MyButton";
+import share from "../../assets/upload.png";
+import dots from "../../assets/more.png";
 
 interface ICard {
   title?: string;

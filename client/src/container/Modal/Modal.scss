@@ -1,0 +1,59 @@
+@import "../../styles/palitre";
+
+.modal {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+
+  &-content {
+    background-color: white;
+    width: 440px;
+    padding: 20px 40px;
+    border-radius: 24px;
+
+    &__logo {
+      margin-bottom: 16px;
+    }
+
+    &__title {
+      font-size: 32px;
+
+      margin-bottom: 24px;
+    }
+
+    &__form {
+      margin: 0 auto;
+      width: 70%;
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      label {
+        margin: 0 0 0 16px;
+      }
+
+      & > * {
+        font-weight: normal;
+        margin: 4px 0 24px;
+      }
+    }
+
+    &__question {
+
+      .change-type-btn {
+        margin: 0 0 0 4px;
+        color: $mainColor;
+        cursor: pointer;
+      }
+    }
+  }
+}
