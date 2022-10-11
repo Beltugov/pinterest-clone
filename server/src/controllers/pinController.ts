@@ -10,11 +10,12 @@ export class PinController {
     next: express.NextFunction
   ): Promise<Response | void> {
     try {
-      const { title, description, userId } = req.body;
+      const { title, description, showTitle, userId } = req.body;
       const { img } = req.files;
       const pin = await pinService.create(
         title,
         Number(userId),
+        showTitle,
         description,
         img
       );
@@ -69,9 +70,14 @@ export class PinController {
     next: express.NextFunction
   ): Promise<Response | void> {
     try {
-      const { title, description } = req.body;
+      const { title, description, showTitle } = req.body;
       const { id } = req.params;
-      const pin = await pinService.change(Number(id), title, description);
+      const pin = await pinService.change(
+        Number(id),
+        title,
+        description,
+        showTitle
+      );
       return res.json({
         status: 200,
         data: pin,

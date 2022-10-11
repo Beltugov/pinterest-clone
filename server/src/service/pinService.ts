@@ -6,7 +6,13 @@ import * as fs from "fs";
 const uuid = require("uuid");
 
 export class PinService {
-  create = async (title: string, userId: number, description: string, img) => {
+  create = async (
+    title: string,
+    userId: number,
+    showTitle: boolean,
+    description: string,
+    img
+  ) => {
     try {
       const fileName = uuid.v4() + ".jpg";
       img.mv(path.resolve(__dirname, "..", "img", fileName));
@@ -14,6 +20,7 @@ export class PinService {
       const createdPin = await PinEntity.create({
         title,
         user,
+        show_title: showTitle,
         description,
         img: fileName,
       }).save();
@@ -24,6 +31,7 @@ export class PinService {
           title: createdPin.title,
           description: createdPin.description,
           img: createdPin.img,
+          showTitle: createdPin.show_title,
         },
       };
     } catch (e) {
@@ -62,11 +70,17 @@ export class PinService {
     }
   };
 
-  change = async (id: number, title: string, description: string) => {
+  change = async (
+    id: number,
+    title: string,
+    description: string,
+    showTitle
+  ) => {
     try {
       await PinEntity.update(id, {
         title,
         description,
+        show_title: showTitle,
       });
       return await PinEntity.findOneBy({ id: id });
     } catch (e) {

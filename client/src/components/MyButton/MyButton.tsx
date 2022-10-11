@@ -1,13 +1,22 @@
 import React from "react";
 import "./MyButton.scss";
+import { IButton } from "../../types/button";
 
-interface IMyButton {
-  children?: React.ReactNode;
-  // onClick: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
-}
-
-const MyButton: React.FC<IMyButton> = ({ children }) => {
-  return <button className="my-button">{children}</button>;
+const MyButton: React.FC<IButton> = ({
+  className,
+  children,
+  onClick,
+  type,
+}) => {
+  return (
+    <button
+      className={className}
+      type={type}
+      onClick={(event) => onClick(event)}
+    >
+      {children}
+    </button>
+  );
 };
 
 export default MyButton;

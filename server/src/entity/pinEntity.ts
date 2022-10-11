@@ -25,6 +25,9 @@ export class PinEntity extends BaseEntity {
   title: string;
 
   @Column()
+  show_title: boolean;
+
+  @Column()
   description: string | null;
 
   @ManyToOne(() => UserEntity, (user) => user.pin, {

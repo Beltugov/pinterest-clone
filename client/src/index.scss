@@ -1,8 +1,9 @@
 @import "styles/palitre";
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
 * {
-  font-family: "Roboto", sans-serif;
-  font-weight: bold;
+  font-family: "Montserat", sans-serif;
+  font-weight: 600;
   font-size: 16px;
   margin: 0;
   padding: 0;
@@ -10,12 +11,7 @@
   text-decoration: none;
   list-style: none;
 
-
-  &:focus-visible {
-    outline: 2px solid $inputTargetBorder;
+  img {
+    vertical-align: middle;
   }
-}
-
-.wrapper {
-  padding: 0 20px;
 }

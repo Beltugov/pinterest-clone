@@ -4,13 +4,21 @@
   width: 100%;
   padding: 20px;
   height: 48px;
-  border: none;
+  border: 2px solid $borderColor;
   background-color: $shadowColor;
   border-radius: 48px;
 
+
   &:hover {
     background-color: $backgroundHover;
-
   }
 
+  &:focus {
+    border-color: $inputTargetBorder;
+    outline: 2px solid $inputTargetBorder;
+  }
+}
+
+.error {
+  border: 2px solid $error;
 }
