@@ -1,7 +1,8 @@
 import Main from "../pages/Main/Main";
 import Pin from "../pages/Pin/Pin";
-import { MAIN_ROUTE, PIN_ROUTE, TITLE_ROUTE } from "./constants";
+import { MAIN_ROUTE, PIN_ROUTE, PROFILE_ROUTE, TITLE_ROUTE } from "./constants";
 import Title from "../pages/Title/Title";
+import Profile from "../pages/Profile/Profile";
 
 export const authRoutes = [
   {
@@ -11,6 +12,10 @@ export const authRoutes = [
   {
     path: PIN_ROUTE,
     Component: Pin,
+  },
+  {
+    path: PROFILE_ROUTE,
+    Component: Profile,
   },
 ];
 

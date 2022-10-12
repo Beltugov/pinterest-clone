@@ -3,11 +3,7 @@ import React from "react";
 import "./Main.scss";
 import Masonry from "react-masonry-css";
 
-import { useTypeSelector } from "../../hooks/useTypeSelector";
-
 const Main = () => {
-  const { user } = useTypeSelector(({ userReducer }) => userReducer);
-
   return (
     <div className="main">
       Main

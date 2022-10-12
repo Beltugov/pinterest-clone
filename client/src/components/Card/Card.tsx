@@ -18,16 +18,18 @@ const Card = ({ title, img, alt }: ICard) => {
     <div className="card">
       <div className="card-content">
         <div className="card-content__top-button">
-          <MyButton>Сохранить</MyButton>
+          <MyButton className={"simple-btn red"} onClick={() => console.log()}>
+            Сохранить
+          </MyButton>
         </div>
         <Link className="card-content__image" to={PIN_ROUTE}>
           <img src={img} alt={alt} />
         </Link>
         <div className="card-content__bottom-button">
-          <MyButton>
+          <MyButton className={"round-btn"} onClick={() => console.log()}>
             <img src={share} alt="share" />
           </MyButton>
-          <MyButton>
+          <MyButton className={"round-btn"} onClick={() => console.log()}>
             <img src={dots} alt="more" />
           </MyButton>
         </div>

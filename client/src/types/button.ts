@@ -6,5 +6,5 @@ export interface IButton {
   type?: buttonType;
   className: string;
   children?: React.ReactNode;
-  onClick: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+  onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }

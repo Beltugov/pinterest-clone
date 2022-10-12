@@ -8,7 +8,7 @@ import { useTypeSelector } from "../hooks/useTypeSelector";
 
 const AppRouter = () => {
   const isAuth = useTypeSelector((state) => state.userReducer.isAuth);
-  const a = false;
+  const a = true;
   return (
     <Routes>
       {a

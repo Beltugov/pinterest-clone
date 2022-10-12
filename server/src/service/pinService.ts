@@ -45,9 +45,6 @@ export class PinService {
   getAll = async (userId, limited: number, offset: number) => {
     try {
       return await PinEntity.find({
-        where: {
-          user: userId,
-        },
         take: limited,
         skip: offset,
       });

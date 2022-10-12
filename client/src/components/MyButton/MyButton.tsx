@@ -12,7 +12,7 @@ const MyButton: React.FC<IButton> = ({
     <button
       className={className}
       type={type}
-      onClick={(event) => onClick(event)}
+      onClick={onClick ? (event) => onClick(event) : undefined}
     >
       {children}
     </button>

@@ -1,7 +1,15 @@
 @import "../../styles/palitre";
 
 .round-btn {
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+  background: none;
 
+  &:hover {
+    background-color: $backgroundHover;
+    box-shadow: 0 0 0 10px $backgroundHover;
+  }
 }
 
 .simple-btn {

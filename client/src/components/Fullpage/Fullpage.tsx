@@ -4,14 +4,10 @@ const Fullpage = ({
   children,
   transition,
   sectionStart,
-  nextSection,
-  prevSection,
 }: {
   children: React.ReactNode[];
   transition: number;
   sectionStart?: number;
-  nextSection?: () => boolean;
-  prevSection?: () => boolean;
 }) => {
   let currentSection = sectionStart || 0;
   const id = "fullpage";
