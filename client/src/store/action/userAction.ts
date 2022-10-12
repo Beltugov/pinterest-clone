@@ -8,7 +8,6 @@ import {BASE_URL} from "../../consts/http";
 export const logInUser =
   (email: string, password: string) =>
   async (dispatch: Dispatch<UserAction>): Promise<IUser | void> => {
-    console.log("start");
     dispatch({ type: fetchUserType.FETCH_USER });
     await fetch(`${BASE_URL}/user/login`, {
       method: "POST",

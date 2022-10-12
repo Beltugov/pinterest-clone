@@ -15,10 +15,6 @@ export const regValidation = [
   body("email")
     .isEmail()
     .withMessage("Недопустимый E-Mail")
-    .isLength({
-      min: 6,
-    })
-    .withMessage("Количество символов E-Mail не может быть меньше 6")
     .isLength({ max: 40 })
     .withMessage("Количество символов E-Mail не может быть больше 40")
     .custom((value: string) => {

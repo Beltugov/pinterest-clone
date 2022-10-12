@@ -10,6 +10,7 @@ const MyInput: React.FC<IInput> = ({
   value,
   change,
   isError,
+  onKeyUp,
 }) => {
   return (
     <input
@@ -19,6 +20,7 @@ const MyInput: React.FC<IInput> = ({
       placeholder={placeholder}
       value={value}
       onChange={change}
+      onKeyUp={onKeyUp}
     />
   );
 };

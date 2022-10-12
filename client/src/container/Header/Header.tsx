@@ -4,8 +4,12 @@ import "./Header.scss";
 import { Link } from "react-router-dom";
 
 import Logo from "../../assets/Logo.png";
-import { MAIN_ROUTE } from "../../router/constants";
-import MyInput from "../../components/MyInput/MyInput";
+import search from "../../assets/search.svg";
+import close from "../../assets/close.svg";
+
+import { MAIN_ROUTE, PROFILE_ROUTE } from "../../router/constants";
+import MyButton from "../../components/MyButton/MyButton";
+import Avatar from "../../components/Avatar/Avatar";
 
 const Header = () => {
   const [searchValue, setSearchValue] = useState<string>("");
@@ -16,19 +20,32 @@ const Header = () => {
           <img src={Logo} alt="Logo" width={28} />
         </Link>
       </div>
-      <div className="header__search">
-        <MyInput
+      <label className="header-search">
+        <img
+          className="header-search__img"
+          src={search}
+          alt="search"
+          width={24}
+        />
+        <input
+          className="header-search__input"
           placeholder={"Поиск"}
           value={searchValue}
-          change={(e) => setSearchValue(e.target.value)}
+          onChange={(e) => setSearchValue(e.target.value)}
         />
-      </div>
+        <MyButton
+          className={"round-btn header-search__close-btn"}
+          onClick={() => setSearchValue("")}
+        >
+          <img src={close} alt="close" width={24} />
+        </MyButton>
+      </label>
       <div className="header-btn">
-        <div className="header-btn__profile">
-          {/*<MyButton>*/}
-          {/*  <Avatar letter={"A"} width={28} />*/}
-          {/*</MyButton>*/}
-        </div>
+        <Link to={PROFILE_ROUTE} className="header-btn__profile">
+          <MyButton className={"round-btn"}>
+            <Avatar letter={"A"} width={28} />
+          </MyButton>
+        </Link>
       </div>
     </header>
   );

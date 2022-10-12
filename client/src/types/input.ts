@@ -7,4 +7,5 @@ export interface IInput {
   isError?: boolean;
   change: React.ChangeEventHandler<HTMLInputElement>;
   placeholder?: string;
+  onKeyUp?: React.KeyboardEventHandler<HTMLInputElement>;
 }
