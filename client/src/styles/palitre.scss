@@ -1,38 +1,30 @@
-//Main
-$mainColor: rgb(227, 36, 41);
-$mainColorHover: rgb(196, 30, 35);
-
-//input
-$borderColor: rgb(217, 217, 217);
-$inputTargetBorder: rgb(0, 157, 225);
-
-//pin
-$hover: rgba(0, 0, 0, 0.3);
-
-//validation
-$error: rgb(227, 36, 41);
-
-//shadow
-$shadowColor: rgb(238, 238, 238);
+$red: rgb(227, 36, 41);
+$darkRed: rgb(196, 30, 35);
+$grey: rgb(217, 217, 217);
+$darkGrey: rgb(128, 128, 128);
+$white: rgb(255, 255, 255);
+$smooth: rgb(232, 232, 232);
+$lightBlue: rgb(0, 157, 225);
+$shadow: rgba(0, 0, 0, 0.3);
+$black: rgba(0, 0, 0, 1);
 
 
-$backgroundColor: rgba(255, 255, 255);
+$mainColor: $red;
+$mainColorHover: $darkRed;
+$error: $red;
+$errorHover: $darkRed;
 
-//Header
-$backgroundHeaderHover: rgb(231, 231, 231);
+$inputTargetBorder: $lightBlue;
+$borderColor: $grey;
+$background: $smooth;
+$hover: $darkGrey;
 
-$backgroundHover: rgb(224, 224, 224);
+$pinHoverShadow: $shadow;
+$textColor: $black;
+$secondTextColor: $white;
 
-//textColor
-$textColor: rgb(255, 255, 255);
-
-//titleRadioBtnBackground
-$dotsColor: rgb(203, 203, 203);
-
-//titleSection2
+//title only
 $section2BackgroundColor: #fdfc91;
 $section2Color: #c21952;
-
-//titleSection3
 $section3BackgroundColor: #d9fdf5;
 $section3Color: #006b6c;

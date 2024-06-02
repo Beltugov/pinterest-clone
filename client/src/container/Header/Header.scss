@@ -1,107 +1,108 @@
 @import "../../styles/palitre";
 
 .header {
-  display: flex;
-  justify-content: space-between;
-  background-color: $backgroundColor;
-  align-items: center;
-  height: 72px;
-  padding: 0 20px;
-  position: sticky;
-  top: 0;
-  z-index: 2;
-
-  &__logo {
-    flex: 0.5;
-
-    &-link {
-      display: inline-block;
-      padding: 12px;
-      cursor: pointer;
-      border-radius: 50%;
-      border: none;
-      background: none;
-
-      & > * {
-        vertical-align: middle;
-      }
-
-      &:hover {
-        background-color: $backgroundHover;
-      }
-    }
-  }
-
-  &-search {
-    width: 100%;
-    flex: 3;
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    border: 2px solid $borderColor;
-    background-color: $shadowColor;
-    height: 48px;
-    padding: 12px;
-    border-radius: 24px;
+    height: 72px;
+    padding: 0 20px;
+    position: sticky;
+    top: 0;
+    z-index: 2;
 
-    &__close-btn {
-      display: none;
+    &__logo {
+        flex: 0.5;
+
+        &-link {
+            display: inline-block;
+            padding: 12px;
+            cursor: pointer;
+            border-radius: 50%;
+            border: none;
+            background: none;
+
+            & > * {
+                vertical-align: middle;
+            }
+
+            &:hover {
+                background-color: $background;
+            }
+        }
     }
 
+    &-search {
+        width: 100%;
+        flex: 3;
+        display: flex;
+        align-items: center;
+        border: 2px solid $borderColor;
+        background-color: $background;
+        height: 48px;
+        padding: 12px 0 12px 12px;
+        border-radius: 24px;
 
-    &:hover {
-      background-color: $backgroundHeaderHover;
+        &__close-btn {
+            display: none;
+            padding: 10px;
+        }
+
+
+        &:hover {
+            background-color: $background;
+        }
+
+        &:focus-within {
+            background-color: $background;
+            border-color: $inputTargetBorder;
+            outline: 2px solid $inputTargetBorder;
+
+            .header-search__close-btn {
+                display: block;
+            }
+
+            .header-search__img {
+                display: none;
+            }
+
+            .header-search__input {
+                background-color: $background;
+            }
+        }
+
+        &__input {
+            height: 100%;
+            width: 100%;
+            padding: 10px;
+            border: none;
+            background-color: $background;
+
+            &:hover {
+                background-color: $background;
+            }
+
+
+            &:focus {
+                outline: none;
+            }
+        }
+
+
     }
 
-    &:focus-within {
-      background-color: $backgroundHeaderHover;
-      border-color: $inputTargetBorder;
-      outline: 2px solid $inputTargetBorder;
+    &-btn {
+        display: flex;
+        justify-content: end;
+        flex: 1;
 
-      .header-search__close-btn {
-        display: block;
-      }
+        &__profile {
+            margin: 0 12px;
+            padding: 10px;
+            border-radius: 50%;
 
-      .header-search__img {
-        display: none;
-      }
-
-      .header-search__input {
-        background-color: $backgroundHeaderHover;
-      }
+            &:hover {
+                background-color: $background;
+            }
+        }
     }
-
-    &__input {
-      height: 100%;
-      width: 100%;
-      padding: 10px;
-      border: none;
-      background-color: $shadowColor;
-
-      &:hover {
-        background-color: $backgroundHeaderHover;
-      }
-
-
-      &:focus {
-        outline: none;
-      }
-    }
-
-
-  }
-
-  &-btn {
-    display: flex;
-    justify-content: end;
-    flex: 1;
-
-    & > * {
-      margin: 0 12px;
-
-      &:hover {
-        border-radius: 50%;
-        background-color: $backgroundHover;
-      }
-    }
-  }
 }

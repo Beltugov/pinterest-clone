@@ -1,24 +1,28 @@
 @import "../../styles/palitre";
 
 .my-input {
-  width: 100%;
-  padding: 20px;
-  height: 48px;
-  border: 2px solid $borderColor;
-  background-color: $shadowColor;
-  border-radius: 16px;
+    width: 100%;
+    padding: 20px;
+    height: 48px;
+    border: 2px solid $borderColor;
+    background-color: $background;
+    border-radius: 16px;
 
 
-  &:hover {
-    background-color: $backgroundHover;
-  }
+    &:hover {
+        border-color: $hover;
+    }
 
-  &:focus {
-    border-color: $inputTargetBorder;
-    outline: 2px solid $inputTargetBorder;
-  }
+    &:focus {
+        border-color: $inputTargetBorder;
+        outline: 2px solid $inputTargetBorder;
+    }
 }
 
 .error {
-  border: 2px solid $error;
+    border: 2px solid $error;
+
+    &:hover {
+        border-color: $hover;
+    }
 }

@@ -1,22 +1,14 @@
-import React from "react";
+import React, {ButtonHTMLAttributes} from "react";
 import "./MyButton.scss";
-import { IButton } from "../../types/button";
 
-const MyButton: React.FC<IButton> = ({
-  className,
-  children,
-  onClick,
-  type,
-}) => {
-  return (
-    <button
-      className={className}
-      type={type}
-      onClick={onClick ? (event) => onClick(event) : undefined}
-    >
-      {children}
-    </button>
-  );
+const MyButton: React.FC<ButtonHTMLAttributes<HTMLButtonElement>> = ({children, ...props}) => {
+	return (
+		<button
+			{...props}
+		>
+			{children}
+		</button>
+	);
 };
 
 export default MyButton;

@@ -1,158 +1,165 @@
 @import "../../styles/palitre";
 
 .carousel {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  overflow: hidden;
-  height: 100vh;
-  padding: 10vh 0 0;
-  position: relative;
-
-  &-block-name {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 100px 0 -200px;
+    overflow: hidden;
+    height: 100vh;
+    padding: 10vh 0 0;
+    position: relative;
 
-    &__title {
-      font-size: 52px;
+    &-block-name {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 100px 0 -200px;
+
+        &__title {
+            font-size: 52px;
+        }
+
+        &__subtitle {
+            position: relative;
+
+            &-item {
+                pointer-events: none;
+                user-select: none;
+                width: 800px;
+                text-align: center;
+                font-size: 52px;
+                animation-duration: 1s;
+                animation-fill-mode: forwards;
+                transform: translateY(80px);
+            }
+        }
+
+        &__radio-btn {
+            display: flex;
+
+            label {
+                cursor: pointer;
+
+                .radio-btn {
+                    width: 10px;
+                    height: 10px;
+                    background-color: $background;
+                    margin: 60px 8px 0;
+                    border-radius: 50%;
+
+                    input {
+                        display: none;
+                    }
+                }
+            }
+        }
     }
 
-    &__subtitle {
-      position: relative;
 
-      &-item {
+    .background-cards {
+        display: flex;
         pointer-events: none;
         user-select: none;
-        width: 800px;
-        text-align: center;
-        font-size: 52px;
-        animation-duration: 1s;
-        animation-fill-mode: forwards;
-        transform: translateY(80px);
-      }
-    }
+        z-index: -1;
 
-    &__radio-btn {
-      display: flex;
+        &__item {
+            position: relative;
 
-      label {
-        cursor: pointer;
 
-        .radio-btn {
-          width: 10px;
-          height: 10px;
-          background-color: $dotsColor;
-          margin: 60px 8px 0;
-          border-radius: 50%;
+            .item {
+                animation-duration: 1s;
+                animation-fill-mode: forwards;
+                margin: 0 8px 12px;
+                border-radius: 18px;
+                overflow: hidden;
 
-          input {
-            display: none;
-          }
+                img {
+                    vertical-align: middle;
+                }
+            }
+
+
+            &:nth-child(2), &:nth-last-child(2) {
+                margin: 140px 0 0;
+            }
+
+            &:nth-child(3), &:nth-last-child(3) {
+                margin: 240px 0 0;
+            }
+
+            &:nth-child(4) {
+                margin: 400px 0 0;
+            }
         }
-      }
+
     }
-  }
 
-
-  .background-cards {
-    display: flex;
-    pointer-events: none;
-    user-select: none;
-    z-index: -1;
-
-    &__item {
-      position: relative;
-
-
-      .item {
-        animation-duration: 1s;
-        animation-fill-mode: forwards;
-        margin: 0 8px 12px;
-        border-radius: 18px;
-        overflow: hidden;
+    .down-btn {
+        position: relative;
+        top: -55%;
+        border-radius: 50%;
+        height: 52px;
+        width: 52px;
+        border: none;
+        cursor: pointer;
+        animation-name: buttonDown;
+        animation-duration: 1.25s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
 
         img {
-          vertical-align: middle;
+            vertical-align: middle;
         }
-      }
-
-
-      &:nth-child(2), &:nth-last-child(2) {
-        margin: 140px 0 0;
-      }
-
-      &:nth-child(3), &:nth-last-child(3) {
-        margin: 240px 0 0;
-      }
-
-      &:nth-child(4) {
-        margin: 400px 0 0;
-      }
     }
 
-  }
-
-  .down-btn {
-    position: relative;
-    top: -55%;
-    border-radius: 50%;
-    height: 52px;
-    width: 52px;
-    border: none;
-    cursor: pointer;
-    animation-name: buttonDown;
-    animation-duration: 1.25s;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-
-    img {
-      vertical-align: middle;
+    .new {
+        opacity: 0;
+        transform: translateY(80px);
+        animation-name: slideEnter;
     }
-  }
 
-  .new {
-    opacity: 0;
-    transform: translateY(80px);
-    animation-name: slideEnter;
-  }
+    .prev {
+        position: absolute;
+        opacity: 1;
+        animation-name: slideLeave;
 
-  .prev {
-    position: absolute;
-    opacity: 1;
-    animation-name: slideLeave;
-  }
+        img {
+            margin: 0 0 12px;
+            border-radius: 18px;
+            overflow: hidden;
 
-  @keyframes buttonDown {
-    from {
-      transform: translateY(0);
+        }
     }
-    to {
-      transform: translateY(30px);
-    }
-  }
 
-  @keyframes slideEnter {
-    from {
-      opacity: 0;
-      transform: translateY(80px);
+    @keyframes buttonDown {
+        from {
+            transform: translateY(0);
+        }
+        to {
+            transform: translateY(30px);
+        }
     }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
 
-  @keyframes slideLeave {
-    from {
-      opacity: 1;
-      transform: translateY(0);
+    @keyframes slideEnter {
+        from {
+            opacity: 0;
+            transform: translateY(80px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
-    to {
-      opacity: 0;
-      transform: translateY(-60px);
+
+    @keyframes slideLeave {
+        from {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        to {
+            opacity: 0;
+            transform: translateY(-60px);
+        }
     }
-  }
 }
 

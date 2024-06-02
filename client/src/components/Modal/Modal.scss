@@ -1,0 +1,31 @@
+@import "../../styles/palitre";
+
+.modal-wrapper {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+
+  .modal {
+    background-color: white;
+    width: 440px;
+    padding: 20px 40px;
+    border-radius: 24px;
+    position: relative;
+
+    &__close-btn {
+      position: absolute;
+      top: 5%;
+      left: 90%;
+      cursor: pointer;
+    }
+    
+  }
+}

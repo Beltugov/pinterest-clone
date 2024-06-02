@@ -1,0 +1,25 @@
+@import "../../styles/palitre";
+
+.form {
+  margin: 0 auto 20px;
+  width: 70%;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  label {
+    margin: 0 0 0 16px;
+  }
+
+  .error-message {
+    font-size: 0.8rem;
+    color: $error;
+    margin: -16px 0 20px 16px;
+  }
+
+  & > * {
+    font-weight: normal;
+    margin: 4px 0 24px;
+  }
+}

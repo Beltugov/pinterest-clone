@@ -1,11 +1,12 @@
 import React from "react";
 
-export interface IInput {
-  id?: string;
-  type?: string;
-  value: string;
-  isError?: boolean;
-  change: React.ChangeEventHandler<HTMLInputElement>;
-  placeholder?: string;
-  onKeyUp?: React.KeyboardEventHandler<HTMLInputElement>;
+export interface IInput extends React.InputHTMLAttributes<HTMLInputElement> {
+    isError?: boolean;
+}
+
+export interface IFormInput extends React.InputHTMLAttributes<HTMLInputElement> {
+    type: string,
+    placeholder: string,
+    setValue: (e: string) => void,
+    errorMessage: string | null
 }

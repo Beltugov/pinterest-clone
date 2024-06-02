@@ -1,15 +1,18 @@
 @import "../../styles/palitre";
 
 .avatar {
-  width: 28px;
-  height: 28px;
-  background-color: $backgroundHover;
-  border-radius: 50%;
-  vertical-align: middle;
-  text-align: center;
+    width: 28px;
+    height: 28px;
+    background-color: $background;
+    border-radius: 50%;
+    vertical-align: middle;
+    text-align: center;
 
-  &__letter {
-    display: inline-block;
-    margin: 20% 0 0;
-  }
+
+    &__letter {
+        display: inline-block;
+        font-size: 14px;
+        margin: 20% 0 0;
+        user-select: none;
+    }
 }

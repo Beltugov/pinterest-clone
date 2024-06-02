@@ -1,163 +1,155 @@
 @import "../../styles/palitre";
 
 .title-page {
-  height: 100vh;
-  overflow: hidden;
+    height: 100vh;
+    overflow: hidden;
 
-  &__main {
-
-    .section {
-      height: 100vh;
-      overflow: hidden;
-    }
-
-    .section-1 {
-
-      &-header {
-        margin: 20px 20px 0;
-        display: flex;
-        justify-content: space-between;
-
-        &__logo {
-          display: flex;
-          align-items: center;
-
-          .site-name {
-            margin: 0 0 0 8px;
-            font-size: 20px;
-            color: $mainColor;
-          }
-        }
-      }
-    }
-
-    %block {
-      .block {
-        display: flex;
-        justify-content: space-around;
-        text-align: center;
-        align-items: center;
-        height: 100%;
-
-        &-image {
-          height: 100%;
-          width: 50%;
-          position: relative;
-          cursor: pointer;
-
-          &__item {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            border-radius: 40px;
+    &__main {
+        .section {
+            height: 100vh;
             overflow: hidden;
-          }
-
-          &__text {
-            position: absolute;
-            top: 50%;
-            left: 45%;
-            border-radius: 40px;
-            border: 1px solid $borderColor;
-            background-color: white;
-            z-index: 3;
-            padding: 20px;
-            transform: translate(-50%, -50%);
-            font-size: 1.5rem;
-          }
-
-          &__item {
-            &:nth-child(2) {
-              top: 30%;
-              left: 35%;
-            }
-
-            &:nth-child(3) {
-              top: 50%;
-              left: 50%;
-              z-index: 2;
-            }
-
-            &:nth-child(4) {
-              top: 65%;
-              left: 30%;
-            }
-
-            &:nth-child(5) {
-              top: 70%;
-              left: 65%;
-            }
-          }
         }
 
-        &-text {
-          width: 50%;
+        .section-1 {
+            &-header {
+                margin: 20px 20px 0;
+                display: flex;
+                justify-content: space-between;
 
-          &__title {
-            font-size: 4rem;
-            line-height: 80px;
-            margin: 0 auto 12px;
-          }
+                &__logo {
+                    display: flex;
+                    align-items: center;
 
-          &__content {
-            width: 50%;
-            font-size: 1.4rem;
-            font-weight: normal;
-            margin: 0 auto 24px;
-          }
-        }
-      }
-    }
+                    .site-name {
+                        margin: 0 0 0 8px;
+                        font-size: 20px;
+                        color: $mainColor;
+                    }
+                }
 
-    .section-2 {
-      box-shadow: 0 -10px 30px 20px white;
-      background-color: $section2BackgroundColor;
-      color: $section2Color;
-      @extend %block;
-
-      .block-text__btn {
-        color: $section2BackgroundColor;
-        background-color: $section2Color;
-      }
-    }
-
-    .section-3 {
-      background-color: $section3BackgroundColor;
-      color: $section3Color;
-      @extend %block;
-
-      .block-text__btn {
-        color: $section3BackgroundColor;
-        background-color: $section3Color;
-      }
-    }
-
-    .section-4 {
-      color: $textColor;
-      background-image: url("../../assets/title/background.png");
-      @extend %block;
-
-      .block {
-        background-color: rgba(0, 0, 0, 0.6);
-
-        &-text__title {
-          margin: 0 0 0 20%;
-          width: 20%;
+                &__auth-btn {
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: nowrap;
+                    
+                }
+            }
         }
 
-        &-modal {
-          color: black;
-          height: 100%;
-          width: 50%;
-          transform: translate(-50%, 0);
+        %block {
+            .block {
+                display: flex;
+                justify-content: space-around;
+                text-align: center;
+                align-items: center;
+                height: 100%;
 
-          & > * {
-            background: none;
-          }
+                &-image {
+                    height: 100%;
+                    width: 50%;
+                    position: relative;
+                    cursor: pointer;
+
+                    &__item {
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        border-radius: 40px;
+                        overflow: hidden;
+                    }
+
+                    &__text {
+                        position: absolute;
+                        top: 50%;
+                        left: 45%;
+                        border-radius: 40px;
+                        border: 1px solid $borderColor;
+                        background-color: white;
+                        z-index: 3;
+                        padding: 20px;
+                        transform: translate(-50%, -50%);
+                        font-size: 1.5rem;
+                    }
+
+                    &__item {
+                        &:nth-child(2) {
+                            top: 30%;
+                            left: 35%;
+                        }
+
+                        &:nth-child(3) {
+                            top: 50%;
+                            left: 50%;
+                            z-index: 2;
+                        }
+
+                        &:nth-child(4) {
+                            top: 65%;
+                            left: 30%;
+                        }
+
+                        &:nth-child(5) {
+                            top: 70%;
+                            left: 65%;
+                        }
+                    }
+                }
+
+                &-text {
+                    width: 50%;
+
+                    &__title {
+                        font-size: 4rem;
+                        line-height: 80px;
+                        margin: 0 auto 12px;
+                    }
+
+                    &__content {
+                        width: 50%;
+                        font-size: 1.4rem;
+                        font-weight: normal;
+                        margin: 0 auto 24px;
+                    }
+                }
+            }
         }
-      }
-    }
 
-  }
+        .section-2 {
+            background-color: $section2BackgroundColor;
+            color: $section2Color;
+            @extend %block;
+
+            .block-text__btn {
+                color: $section2BackgroundColor;
+                background-color: $section2Color;
+            }
+        }
+
+        .section-3 {
+            background-color: $section3BackgroundColor;
+            color: $section3Color;
+            @extend %block;
+
+            .block-text__btn {
+                color: $section3BackgroundColor;
+                background-color: $section3Color;
+            }
+        }
+
+        .section-4 {
+            color: $secondTextColor;
+            background-image: url("../../assets/title/background.png");
+            @extend %block;
+
+            .block {
+                background-color: rgba(0, 0, 0, 0.6);
+
+                &-text__title {
+                    margin: 0 0 0 20%;
+                    width: 20%;
+                }
+            }
+        }
+    }
 }

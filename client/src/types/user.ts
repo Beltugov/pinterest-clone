@@ -1,35 +1,44 @@
-import { fetchUserType } from "./fetch";
+export enum UserActionType {
+    FETCH_USER = "FETCH_USER",
+    FETCH_USER_SUCCESS = "FETCH_USER_SUCCESS",
+    FETCH_USER_ERROR = "FETCH_USER_ERROR",
+    UN_AUTHORIZATION = "UN_AUTHORIZATION",
+}
 
 export interface IUser {
-  firstName: string | null;
-  secondName: string | null;
-  password: string | null;
-  email: string | null;
-  avatar: string | null;
+    nickname: string;
+    password: string;
+    email: string;
+    avatar: string | null;
 }
 
 export interface UserState {
-  isAuth: boolean;
-  error: string | null;
-  isLoading: boolean;
-  user: IUser;
+    error: unknown | null;
+    isLoading: boolean;
+    isAuth: boolean;
+    user: IUser | null;
 }
 
 interface IFetchUserAction {
-  type: fetchUserType.FETCH_USER;
+    type: UserActionType.FETCH_USER;
 }
 
 interface IFetchUserActionSuccess {
-  type: fetchUserType.FETCH_USER_SUCCESS;
-  payload: IUser;
+    type: UserActionType.FETCH_USER_SUCCESS;
+    payload: IUser;
 }
 
 interface IFetchUserActionError {
-  type: fetchUserType.FETCH_USER_ERROR;
-  payload: any;
+    type: UserActionType.FETCH_USER_ERROR;
+    payload: unknown;
+}
+
+interface UnAuthorizationError {
+    type: UserActionType.UN_AUTHORIZATION;
 }
 
 export type UserAction =
-  | IFetchUserAction
-  | IFetchUserActionSuccess
-  | IFetchUserActionError;
+    | IFetchUserAction
+    | IFetchUserActionSuccess
+    | IFetchUserActionError
+    | UnAuthorizationError;

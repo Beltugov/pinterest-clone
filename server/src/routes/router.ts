@@ -1,7 +1,7 @@
-import { userRouter } from "./userRouter";
-import { boardRouter } from "./boardRouter";
-import { pinRouter } from "./pinRouter";
-import { commentRouter } from "./commentRouter";
+import {boardRouter} from "./boardRouter";
+import {pinRouter} from "./pinRouter";
+import {commentRouter} from "./commentRouter";
+import {userRouter} from "./userRouter";
 
 const Router = require("express");
 const router = new Router();

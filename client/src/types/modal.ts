@@ -1,7 +1,8 @@
-export type ModalType = "login" | "registration";
+import {ReactElement} from "react";
 
 export interface IModal {
-  type: ModalType;
-  setType: (type: ModalType) => void;
-  setModalActive: (active: boolean) => void;
+    setModalActive: (active: boolean) => void;
+    children: ReactElement
 }
+
+

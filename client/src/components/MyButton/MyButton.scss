@@ -1,40 +1,38 @@
 @import "../../styles/palitre";
 
 .round-btn {
-  border-radius: 50%;
-  cursor: pointer;
-  border: none;
-  background: none;
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+    background: none;
 
-  &:hover {
-    background-color: $backgroundHover;
-    box-shadow: 0 0 0 10px $backgroundHover;
-  }
+    &:hover {
+        background-color: $background;
+    }
 }
 
 .simple-btn {
-  padding: 12px;
-  border-radius: 24px;
-  border: none;
-  cursor: pointer;
-  margin: 0 8px;
-  vertical-align: middle;
+    padding: 12px;
+    border-radius: 24px;
+    border: none;
+    cursor: pointer;
+    margin: 0 8px;
+    vertical-align: middle;
+
+    &:hover {
+        background-color: $background;
+    }
 }
 
 .red {
-  color: $textColor;
-  background-color: $mainColor;
+    color: $secondTextColor;
+    background-color: $mainColor;
 
-  &:hover {
-    background-color: $mainColorHover;
-  }
+    &:hover {
+        background-color: $mainColorHover;
+    }
 }
 
-.grey {
-  &:hover {
-    background-color: $backgroundHover;
-  }
-}
 
 
 
